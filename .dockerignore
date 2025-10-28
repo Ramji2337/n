@@ -1,0 +1,39 @@
+# Git
+.git
+.gitignore
+
+# Documentation
+*.md
+DEPLOYMENT_READY.md
+
+# Environment files
+.env
+
+# Python
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+build
+*.egg-info
+.pytest_cache
+
+# Virtual environment
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Deployment configs
+render.yaml
+vercel.json
+
+# Model file (will be downloaded at runtime)
+skin_disease_model.h5
