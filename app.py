@@ -33,6 +33,14 @@ if not os.path.exists(MODEL_PATH):
 
 model = tf.keras.models.load_model(MODEL_PATH)
 
+# Health check endpoint for Render
+@app.route('/')
+def health_check():
+    return jsonify({
+        'status': 'healthy',
+        'message': 'Skin Disease Detection API is running',
+        'model_loaded': True
+    })
 
 CLASS_NAMES = [
     'Acne and Rosacea Photos', 'Actinic Keratosis Basal Cell Carcinoma and other Malignant Lesions', 
@@ -218,5 +226,6 @@ def share_telegram():
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=10000, debug=False)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=False)
 
